@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:tailwind": "tailwindcss build src/EntryPoint/index.css -o public/css/tailwind.output.css",
-    "watch:postcss": "postcss -w src/EntryPoint/index.css -o public/css/tailwind.output.css",
-    "build": "npm run build:tailwind",
+    "watch:postcss:index": "postcss -w src/EntryPoint/index.css -o public/css/index.output.css",
     "watch": "node esbuild.js"
   },
   "repository": {
