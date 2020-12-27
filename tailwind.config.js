@@ -1,13 +1,41 @@
 module.exports = {
-  purge: { enabled: true, content: ["src/**/*.{js,jsx,ts,tsx,html}"] },
-  darkMode: "media", // or 'media' or 'class'
+  purge: {enabled: true, content: ["src/**/*.{js,jsx,ts,tsx,html}"]},
+  darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    container: {
+      center: true
+    },
+    fontSize: {
+      'xs': '.75rem',
+      'sm': '.875rem',
+      'tiny': '.875rem',
+      'base': '1.075rem',
+      'lg': '1.1rem',
+      'xl': '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
+    },
+    extend: {
+      colors: {
+        indigo: {
+          1000: "#080520",
+          navbar: "rgba(8,5,32,.5)",
+          navbarLight: "rgba(255,255,255,.5)"
+        }
+      },
+      fontFamily: {
+        rewind: ['Daddy Rewind']
+      }
+    }
   },
+  plugins: [],
   variants: {
     extend: {},
   },
-  plugins: [],
   corePlugins: {
     preflight: true, // Tailwind's base/reset styles
     container: true, // The container component
@@ -27,10 +55,10 @@ module.exports = {
     backgroundSize: true, //	The background-size utilities like bg-cover
     borderCollapse: false, //	The border-collapse utilities like border-collapse
     borderColor: true, //	The border-color utilities like border-green-700
-    borderOpacity: false, //	The border-color opacity utilities like border-opacity-25
+    borderOpacity: true, //	The border-color opacity utilities like border-opacity-25
     borderRadius: true, //	The border-radius utilities like rounded-l-3xl
-    borderStyle: false, //	The border-style utilities like border-dotted
-    borderWidth: false, //	The border-width utilities like border-l-2
+    borderStyle: true, //	The border-style utilities like border-dotted
+    borderWidth: true, //	The border-width utilities like border-l-2
     boxShadow: true, //	The box-shadow utilities like shadow-lg
     boxSizing: false, //	The box-sizing utilities like box-border
     clear: false, //	The clear utilities like clear-right
@@ -125,7 +153,7 @@ module.exports = {
     verticalAlign: false, //	The vertical-align utilities like align-middle
     visibility: false, //	The visibility utilities like visible
     whitespace: false, //	The whitespace utilities like whitespace-pre
-    width: false, //	The width utilities like w-0.5
+    width: true, //	The width utilities like w-0.5
     wordBreak: false, //	The word-break utilities like break-words
     zIndex: false,
   },

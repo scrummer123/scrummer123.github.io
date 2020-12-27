@@ -4,8 +4,7 @@
   "description": "A porftolio made with React and TypeScript",
   "main": "index.js",
   "scripts": {
-    "build:tailwind": "tailwindcss build src/EntryPoint/index.css -o public/css/tailwind.output.css",
-    "watch:postcss:index": "postcss -w src/EntryPoint/index.css -o public/css/index.output.css",
+    "build:postcss": "postcss src/**/*.css -d public/css",
     "watch": "node esbuild.js"
   },
   "repository": {
@@ -22,6 +21,7 @@
     "@types/classnames": "^2.2.11",
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
+    "chokidar": "^3.4.3",
     "classnames": "^2.2.6",
     "css-loader": "^5.0.1",
     "dotenv": "8.2.0",
@@ -36,6 +36,7 @@
     "prompts": "2.4.0",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
+    "react-backdrop-filter": "^2.1.0",
     "react-dev-utils": "^11.0.1",
     "react-dom": "^17.0.1",
     "react-refresh": "^0.8.3",
@@ -50,6 +51,8 @@
     "@babel/core": "7.12.3",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-native-vector-icons": "^6.4.6",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-eslint": "^10.1.0",
@@ -71,7 +74,8 @@
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
     "postcss": "^8.2.1",
-    "postcss-cli": "^8.3.1"
+    "postcss-cli": "^8.3.1",
+    "react-icons": "^4.1.0"
   },
   "jest": {
     "roots": [
