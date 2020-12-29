@@ -14,3 +14,4 @@ jobs:
         with:
           deploy-branch: master
           site-directory: public
+          repo-token: ${{ secrets.GH_PAT }}
