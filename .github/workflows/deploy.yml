@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
+        uses: alex-page/blazing-fast-gh-pages-deploy@v1.0.0
         with:
           deploy-branch: master
           site-directory: public
