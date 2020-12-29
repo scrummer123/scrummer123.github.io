@@ -23,12 +23,32 @@ module.exports = {
       colors: {
         indigo: {
           1000: "#080520",
-          navbar: "rgba(8,5,32,.5)",
-          navbarLight: "rgba(255,255,255,.5)"
+          navbar: "rgba(8,5,32,.7)",
+          navbarLight: "rgba(255,255,255,.7)"
         }
       },
       fontFamily: {
-        rewind: ['Daddy Rewind']
+        rewind: ['Daddy Rewind'],
+        nunito: ['Nunito Bold']
+      },
+      flex: {
+        "2": "2 2 0%"
+      },
+      height: {
+        "1vh": "1vh",
+        "2vh": "2vh",
+        "3vh": "3vh",
+        "4vh": "4vh",
+        "6vh": "6vh",
+        "8vh": "8vh",
+        "10vh": "10vh",
+        "12vh": "12vh",
+        "14vh": "14vh",
+        "16vh": "16vh",
+        "40vh": "40vh",
+        "50vh": "50vh",
+        "60vh": "60vh",
+        "70vh": "70vh",
       }
     }
   },
@@ -100,7 +120,7 @@ module.exports = {
     justifyItems: true, //	The justify-items utilities like justify-items-end
     justifySelf: true, //	The justify-self utilities like justify-self-end
     letterSpacing: false, //	The letter-spacing utilities like tracking-normal
-    lineHeight: false, //	The line-height utilities like leading-9
+    lineHeight: true, //	The line-height utilities like leading-9
     listStylePosition: false, //	The list-style-position utilities like list-inside
     listStyl: false, //eType	The list-style-type utilities like list-disc
     margin: true, //	The margin utilities like ml-8

@@ -3,19 +3,30 @@
  * A lot of dark/light mode config is written here.
  */
 
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+@import "./custom-components.css";
+
+@import "tailwindcss/utilities";
+
 @font-face {
   font-family: 'Daddy Rewind';
   src: local("Daddy Rewind"), url("../../src/Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
 }
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@font-face {
+  font-family: 'Nunito Bold';
+  src: url("../../src/Fonts/Nunito-Bold.ttf");
+}
 
 @layer base {
-
-  p, div, span {
-    @apply dark:text-white text-base;
+  p, div, span, a {
+    @apply dark:text-white text-xl;
+  }
+  p {
+    @apply dark:text-gray-300 text-gray-600 leading-relaxed;
   }
   h1 {
     @apply dark:text-white text-3xl;
@@ -27,7 +38,7 @@
     @apply dark:text-white text-xl;
   }
   button {
-    @apply bg-indigo-600 hover:bg-indigo-300 dark:bg-indigo-900 dark:hover:bg-indigo-600 transition duration-300 ease-in-out py-2 px-4 text-lg rounded shadow-lg text-white;
+    @apply bg-indigo-600 hover:bg-indigo-300 dark:bg-indigo-900 dark:hover:bg-indigo-600 transition duration-300 ease-in-out py-2 px-4 text-xl rounded shadow-lg text-white;
   }
   a {
     @apply bg-white justify-items-center my-5 cursor-pointer hover:bg-indigo-300 dark:bg-indigo-1000 dark:hover:bg-indigo-600 transition duration-300 ease-in-out py-2 px-4 text-lg rounded text-black dark:text-white;
@@ -40,18 +51,31 @@
   }
 
   .navbar {
-    @apply bg-indigo-navbarLight dark:bg-indigo-navbar sticky top-0 w-full shadow;
+    @apply sticky top-0 w-full;
   }
 
   .icon-button {
     background: rgba(0,0,0, .08);
     padding: 15px;
-    box-shadow: none;
     margin: 0 0 0 15px;
   }
 
   .custom-container {
-    @apply container mx-auto md:px-80 sm:px-10 px-4 my-5;
+    @apply bg-indigo-navbarLight dark:bg-indigo-navbar container 2xl:px-60 xl:px-44 lg:px-14 md:px-10 px-5 xl:py-10 lg:py-8 py-5 ease-out;
+    transition: padding .5s;
+  }
+
+  #custom-container-root {
+    @apply ease-out;
+    transition: padding .5s;
+  }
+
+  .custom-container[data-stuck="true"] {
+    @apply py-1;
+  }
+
+  #custom-container-root[data-stuck="true"] {
+    @apply xl:py-9 lg:py-7 py-4;
   }
 
   .icon {
@@ -70,3 +94,4 @@
     @apply w-screen;
   }
 }
+
