@@ -4,7 +4,8 @@
   "description": "A porftolio made with React and TypeScript",
   "main": "index.js",
   "scripts": {
-    "build:postcss": "postcss src/**/*.css -d public/css",
+    "build:postcss": "postcss src/EntryPoint/index.css -d public/css",
+    "prod:esbuild": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss",
     "watch": "node esbuild.js"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "chokidar": "^3.4.3",
     "classnames": "^2.2.6",
     "css-loader": "^5.0.1",
+    "cssnano": "^4.1.10",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "fs-extra": "^9.0.1",

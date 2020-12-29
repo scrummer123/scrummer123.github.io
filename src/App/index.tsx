@@ -28,7 +28,7 @@ const AppData: React.FC = () => {
       const fetchOpts: RequestInit = {
         method: "GET",
         headers: {
-          Accept: "application/json"
+          Accept: "application/json",
         }
       };
       fetch("https://api.github.com/users/scrummer123/repos", fetchOpts)
@@ -41,7 +41,7 @@ const AppData: React.FC = () => {
 
   const renderProjects = (project, key) => (
     <a href={project.html_url} target="_blank" key={key} className="project-item">
-      <h3 className="font-nunito">{project.name}</h3>
+      <span className="font-nunito text-xl">{project.name}</span>
       <p>{project.description}</p>
     </a>
   );
@@ -83,8 +83,8 @@ const AppData: React.FC = () => {
           <button className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
           </div>
       </div>
-      <div className="custom-container-narrow flex-col" ref={scrollOne}>
-        <h1 className="font-nunito my-5 cursor-pointer" onClick={() => scrollOne.current.scrollIntoView()}>Projecten</h1>
+      <div className="custom-container-narrow flex-col my-5" id="projectsContainer" ref={scrollOne}>
+        <h1 className="font-nunito mb-5 mt-24 cursor-pointer" onClick={() => scrollOne.current.scrollIntoView()}>Projecten</h1>
         {projectsData && projectsData.map(renderProjects)}
       </div>
     </>
