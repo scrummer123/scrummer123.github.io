@@ -16,8 +16,9 @@ jobs:
         run: |
           npm install
           npm run build
+          ls -l public/js/index.js
 
-      - name: Deploy 🚀
+      - name: Deploy
         run: |
           git config --global user.email ${{ secrets.CONFIG_EMAIL }}
           git config --global user.name ${{ secrets.CONFIG_NAME }}
