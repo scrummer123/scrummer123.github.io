@@ -58,8 +58,8 @@ const AppData: React.FC = () => {
           <div data-stuck={scrolledPassed} className="custom-container flex justify-between">
             <h1 className="text-5xl font-rewind mt-1.5">Simon</h1>
             <div className="nav-container">
-              <a href="javascript:void(0)" className="nav-item">Home</a>
-              <a href="javascript:void(0)" className="nav-item">About</a>
+              <a href="/?status=WIP" className="nav-item">Home</a>
+              <a href="/?status=WIP" className="nav-item">About</a>
 
               <button aria-label={"Toggle dark mode"} onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
                 <FaMoon size="15px" color={theme === "dark" ? "#fff" : "#000"}/>
