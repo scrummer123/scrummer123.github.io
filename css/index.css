@@ -1107,13 +1107,13 @@ a {
 @font-face {
   font-family: 'Daddy Rewind';
 
-  src: url("../Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
+  src: local("Daddy Rewind"), url("../Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Nunito Bold';
 
-  src: url("../Fonts/Nunito-Bold.ttf");
+  src: local("Nunito"), url("../Fonts/Nunito-Bold.ttf") format("truetype");
 }
 
 @media (min-width: 640px) {
