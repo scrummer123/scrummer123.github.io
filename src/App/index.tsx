@@ -49,7 +49,7 @@ const AppData: React.FC = () => {
   return (
     <>
       <div id="infoBox">
-        <button aria-label="Show work experience" className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
+        <button aria-label={"Show work experience"} className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
       </div>
       <div className="navbar">
         <BackdropFilter 
@@ -61,7 +61,7 @@ const AppData: React.FC = () => {
               <a href="javascript:void(0)" className="nav-item">Home</a>
               <a href="javascript:void(0)" className="nav-item">About</a>
 
-              <button aria-label="Toggle dark mode" onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
+              <button aria-label={"Toggle dark mode"} onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
                 <FaMoon size="15px" color={theme === "dark" ? "#fff" : "#000"}/>
               </button>
             </div>
@@ -71,7 +71,7 @@ const AppData: React.FC = () => {
       <div id="custom-container-root" data-stuck={scrolledPassed}/>
       <div className="custom-container-narrow">
         <div className="flex-1 lg:flex-2 hidden sm:block h-full">
-          <img width="100%" height="100%" className="rounded-full" src="https://media-exp1.licdn.com/dms/image/C4E03AQGZZDqp3vfasg/profile-displayphoto-shrink_200_200/0/1601467742169?e=1614816000&v=beta&t=aXlM11PN9x69lzEng-gNbnOFQ5NeQrKJsayXwDF5-tg" alt="me"/>
+          <img width={"100%"} height={"100%"} className="rounded-full" src="https://media-exp1.licdn.com/dms/image/C4E03AQGZZDqp3vfasg/profile-displayphoto-shrink_200_200/0/1601467742169?e=1614816000&v=beta&t=aXlM11PN9x69lzEng-gNbnOFQ5NeQrKJsayXwDF5-tg" alt="me"/>
         </div>
         <div className="flex-2 lg:flex-5 2xl:flex-6 ml-0 sm:ml-6 xl:ml-12">
           <h1 className="font-nunito my-2">Wie ben ik?</h1>
@@ -80,7 +80,7 @@ const AppData: React.FC = () => {
             Mijn naam is Simon, ik ben een software ontwikkelaar met veel passie en ambitie voor alles wat ik maak. 
             Wil je meer over mij weten? Neem dan een kijkje op mijn site...
           </p>
-          <button aria-label="Scroll down" className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
+          <button aria-label={"Scroll down"} className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
         </div>
       </div>
       <div className="custom-container-narrow flex-col my-5" id="projectsContainer" ref={scrollOne}>
