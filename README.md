@@ -1,4 +1,4 @@
-# scrummer123.github.io
+# simon-instance.github.io
 
 ## App configuration
 

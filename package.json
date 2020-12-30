@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scrummer123/scrummer123.github.io.git"
+    "url": "git+https://github.com/simon-instance/simon-instance.github.io.git"
   },
   "author": "Simon Peters",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/scrummer123/scrummer123.github.io/issues"
+    "url": "https://github.com/simon-instance/simon-instance.github.io/issues"
   },
-  "homepage": "https://scrummer123.github.io/",
+  "homepage": "https://simon-instance.github.io/",
   "dependencies": {
     "@types/classnames": "^2.2.11",
     "bfj": "^7.0.2",
