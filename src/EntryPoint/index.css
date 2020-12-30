@@ -13,12 +13,12 @@
 
 @font-face {
   font-family: 'Daddy Rewind';
-  src: local("Daddy Rewind"), url("../../src/Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
+  src: local("Daddy Rewind"), url("../Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Nunito Bold';
-  src: local("Nunito Bold"), url("../../src/Fonts/Nunito-Bold.ttf") format("truetype");
+  src: local("Nunito"), url("../Fonts/Nunito-Bold.ttf") format("truetype");
 }
 
 @layer base {
