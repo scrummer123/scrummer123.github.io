@@ -40,7 +40,7 @@ const AppData: React.FC = () => {
   }, []);
 
   const renderProjects = (project, key) => (
-    <a href={project.html_url} target="_blank" key={key} className="project-item">
+    <a href={project.html_url} rel="noopener" target="_blank" key={key} className="project-item">
       <span className="font-nunito text-xl">{project.name}</span>
       <p>{project.description}</p>
     </a>
@@ -49,7 +49,7 @@ const AppData: React.FC = () => {
   return (
     <>
       <div id="infoBox">
-        <button className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
+        <button aria-label="Show work experience" className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
       </div>
       <div className="navbar">
         <BackdropFilter 
@@ -58,10 +58,10 @@ const AppData: React.FC = () => {
           <div data-stuck={scrolledPassed} className="custom-container flex justify-between">
             <h1 className="text-5xl font-rewind mt-1.5">Simon</h1>
             <div className="nav-container">
-              <a className="nav-item">Home</a>
-              <a className="nav-item">About</a>
+              <a href="javascript:void(0)" className="nav-item">Home</a>
+              <a href="javascript:void(0)" className="nav-item">About</a>
 
-              <button onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
+              <button aria-label="Toggle dark mode" onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
                 <FaMoon size="15px" color={theme === "dark" ? "#fff" : "#000"}/>
               </button>
             </div>
@@ -80,7 +80,7 @@ const AppData: React.FC = () => {
             Mijn naam is Simon, ik ben een software ontwikkelaar met veel passie en ambitie voor alles wat ik maak. 
             Wil je meer over mij weten? Neem dan een kijkje op mijn site...
           </p>
-          <button className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
+          <button aria-label="Scroll down" className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
         </div>
       </div>
       <div className="custom-container-narrow flex-col my-5" id="projectsContainer" ref={scrollOne}>
