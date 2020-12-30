@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: 'Nunito Bold';
-  src: url("../../src/Fonts/Nunito-Bold.ttf");
+  src: local("Nunito Bold"), url("../../src/Fonts/Nunito-Bold.ttf") format("truetype");
 }
 
 @layer base {
