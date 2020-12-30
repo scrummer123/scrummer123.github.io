@@ -14,17 +14,13 @@
 @font-face {
   font-family: 'Daddy Rewind';
   src: 
-    local("Arial"),
     url("../Fonts/DaddyRewind-MVYAP.ttf") format("truetype");
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Nunito Bold';
   src:
-    local("Arial"),
     url("../Fonts/Nunito-Bold.ttf") format("truetype");
-  font-display: swap;
 }
 
 @layer base {
