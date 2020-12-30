@@ -9,9 +9,13 @@ jobs:
   build-deploy:
     runs-on: ubuntu-20.04
     steps:
-      - name: Deploy
-        uses: alex-page/blazing-fast-gh-pages-deploy@v1.0.0
+      - uses: actions/checkout@master
+      - name: npm install, test and build
+        run: |
+          npm install
+          npm run test
+          npm run build
+      - name: Deploy site to gh-pages branch
+        uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
         with:
-          deploy-branch: master
           repo-token: ${{ secrets.GH_PAT }}
-          site-directory: public

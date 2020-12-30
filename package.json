@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build:postcss": "postcss src/EntryPoint/index.css -d public/css",
-    "prod:esbuild": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss",
+    "test": "echo test",
+    "build": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss",
     "watch": "node esbuild.js"
   },
   "repository": {
