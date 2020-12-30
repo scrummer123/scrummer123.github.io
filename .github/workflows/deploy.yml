@@ -16,7 +16,7 @@ jobs:
         run: |
           npm install
           npm run build
-          ls -l public/js/index.js
+          ls -l --block-size=kB public/js/index.js
 
       - name: Deploy
         run: |
