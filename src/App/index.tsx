@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useThemeData, ThemeProvider } from '../Providers/ThemeProvider';
-import BackdropFilter from 'react-backdrop-filter';
 import { FaMoon } from 'react-icons/fa';
 
 const App: React.FC = () => {
@@ -52,21 +51,17 @@ const AppData: React.FC = () => {
         <button aria-label={"Show work experience"} className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
       </div>
       <div className="navbar">
-        <BackdropFilter 
-          filter="blur(20px)"
-        >
-          <div data-stuck={scrolledPassed} className="custom-container flex justify-between">
-            <h1 className="text-5xl font-rewind mt-1.5">Simon</h1>
-            <div className="nav-container">
-              <a href="/?status=WIP" className="nav-item">Home</a>
-              <a href="/?status=WIP" className="nav-item">About</a>
+        <div data-stuck={scrolledPassed} className="custom-container flex justify-between">
+          <h1 className="text-5xl font-rewind mt-1.5">Simon</h1>
+          <div className="nav-container">
+            <a href="/?status=WIP" className="nav-item">Home</a>
+            <a href="/?status=WIP" className="nav-item">About</a>
 
-              <button aria-label={"Toggle dark mode"} onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
-                <FaMoon size="15px" color={theme === "dark" ? "#fff" : "#000"}/>
-              </button>
-            </div>
+            <button aria-label={"Toggle dark mode"} onClick={() => toggleTheme()} className="icon-button dark:bg-indigo-900 my-4 shadow-none">
+              <FaMoon size="15px" color={theme === "dark" ? "#fff" : "#000"}/>
+            </button>
           </div>
-        </BackdropFilter>
+        </div>
       </div>
       <div id="custom-container-root" data-stuck={scrolledPassed}/>
       <div className="custom-container-narrow">

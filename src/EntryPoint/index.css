@@ -59,6 +59,7 @@
   .navbar {
     @apply sticky top-0 w-full bg-indigo-navbarLight dark:bg-indigo-navbar;
     z-index: 5;
+    backdrop-filter: blur(20px);
   }
 
   .icon-button {
