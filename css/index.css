@@ -651,11 +651,11 @@ img {
 }
 
 .navbar {
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.7);
 }
 
 .dark .navbar {
-  background-color: rgba(8,5,32,.5);
+  background-color: rgba(8,5,32,.7);
 }
 
 .navbar {
