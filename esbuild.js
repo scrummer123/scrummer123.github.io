@@ -2,6 +2,22 @@ const {exec} = require("child_process");
 const esbuild = require("esbuild");
 const {watch} = require("chokidar");
 
+const fs = require("fs");
+
+fs.readFile("public/index.html", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    const find = /src="(.*)"/;
+
+    const newStr = data.replace(find, "src=\"http://127.0.0.1:8000/index.js\"");
+
+    fs.writeFile("public/index.html", newStr, "utf-8", (err) => {
+        if (err) throw err;
+
+        console.log("Index.html edited");
+    });
+});
+
 esbuild.serve(
   {port: 8000, host: "127.0.0.1"},
   {

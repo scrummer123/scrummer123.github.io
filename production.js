@@ -13,3 +13,17 @@ fs.readFile("public/js/index.js", "utf-8", (err, data) => {
         console.log("Minification completed");
     });
 });
+
+fs.readFile("public/index.html", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    const find = /src="(.*)"/;
+
+    const newStr = data.replace(find, "src=\"js/index.js\"");
+
+    fs.writeFile("public/index.html", newStr, "utf-8", (err) => {
+        if (err) throw err;
+
+        console.log("Index.html edited");
+    });
+});

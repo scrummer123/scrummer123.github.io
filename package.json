@@ -6,7 +6,7 @@
   "scripts": {
     "build:postcss": "postcss src/EntryPoint/index.css -d public/css",
     "test": "echo test",
-    "build": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify-whitespace --minify-identifiers --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss && npm run uglify && node clean.js",
+    "build": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify-whitespace --minify-identifiers --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss && npm run uglify && node production.js",
     "watch": "node esbuild.js",
     "deploy": "gh-pages -d public",
     "uglify": "uglifyjs --compress --mangle -o public/js/index.js -- public/js/index.js"
