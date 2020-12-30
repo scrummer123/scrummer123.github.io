@@ -664,6 +664,8 @@ img {
   top: 0px;
   width: 100%;
   z-index: 5;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 
 .icon-button {
