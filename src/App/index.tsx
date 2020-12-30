@@ -30,7 +30,7 @@ const AppData: React.FC = () => {
           Accept: "application/json",
         }
       };
-      fetch("https://api.github.com/users/scrummer123/repos", fetchOpts)
+      fetch("https://api.github.com/users/simon-instance/repos", fetchOpts)
         .then(response => response.json())
         .then(data => setProjectsData(data))
     } catch (e) {
