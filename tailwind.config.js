@@ -32,7 +32,10 @@ module.exports = {
         nunito: ['Nunito Bold']
       },
       flex: {
-        "2": "2 2 0%"
+        "2": "2 2 0%",
+        "3": "3 3 0%",
+        "5": "5 5 0%",
+        "6": "6 6 0%",
       },
       height: {
         "1vh": "1vh",

@@ -51,7 +51,7 @@
   }
 
   .navbar {
-    @apply sticky top-0 w-full;
+    @apply sticky top-0 w-full bg-indigo-navbarLight dark:bg-indigo-navbar;
     z-index: 5;
   }
 
@@ -62,7 +62,7 @@
   }
 
   .custom-container {
-    @apply bg-indigo-navbarLight dark:bg-indigo-navbar container 2xl:px-60 xl:px-44 lg:px-14 md:px-10 px-5 xl:py-10 lg:py-8 py-5 ease-out;
+    @apply container 2xl:px-60 xl:px-44 lg:px-14 md:px-10 px-5 xl:py-10 lg:py-8 py-5 ease-out;
     transition: padding .5s;
   }
 

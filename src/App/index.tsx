@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 
 import { useThemeData, ThemeProvider } from '../Providers/ThemeProvider';
 import BackdropFilter from 'react-backdrop-filter';
@@ -14,14 +14,14 @@ const App: React.FC = () => {
 
 const AppData: React.FC = () => {
   const { theme, toggleTheme } = useThemeData();
-  const scrollOne = useRef(null);
-  const [scrolledPassed, setScrolledPassed] = useState<true | false>(false);
-  const [projectsData, setProjectsData] = useState<any>(undefined);
+  const scrollOne = React.useRef(null);
+  const [scrolledPassed, setScrolledPassed] = React.useState<true | false>(false);
+  const [projectsData, setProjectsData] = React.useState<any>(undefined);
   const observer = new IntersectionObserver( 
     ([entry]) => setScrolledPassed(!entry.isIntersecting),
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     observer.observe(document.querySelector("#infoBox")!);
 
     try {
@@ -67,13 +67,13 @@ const AppData: React.FC = () => {
             </div>
           </div>
         </BackdropFilter>
-        <div id="custom-container-root" data-stuck={scrolledPassed}/>
       </div>
+      <div id="custom-container-root" data-stuck={scrolledPassed}/>
       <div className="custom-container-narrow">
-        <div className="flex-1 hidden sm:block h-full">
-          <img className="rounded-full" src="https://media-exp1.licdn.com/dms/image/C4E03AQGZZDqp3vfasg/profile-displayphoto-shrink_200_200/0/1601467742169?e=1614816000&v=beta&t=aXlM11PN9x69lzEng-gNbnOFQ5NeQrKJsayXwDF5-tg" alt="me"/>
+        <div className="flex-1 lg:flex-2 hidden sm:block h-full">
+          <img width="100%" height="100%" className="rounded-full" src="https://media-exp1.licdn.com/dms/image/C4E03AQGZZDqp3vfasg/profile-displayphoto-shrink_200_200/0/1601467742169?e=1614816000&v=beta&t=aXlM11PN9x69lzEng-gNbnOFQ5NeQrKJsayXwDF5-tg" alt="me"/>
         </div>
-        <div className="flex-2 ml-8 lg:ml-0">
+        <div className="flex-2 lg:flex-5 2xl:flex-6 ml-0 sm:ml-6 xl:ml-12">
           <h1 className="font-nunito my-2">Wie ben ik?</h1>
           <p>
             Leuk dat je besloot een kijkje te nemen naar mijn personalia.
@@ -81,7 +81,7 @@ const AppData: React.FC = () => {
             Wil je meer over mij weten? Neem dan een kijkje op mijn site...
           </p>
           <button className="mt-4" onClick={() => scrollOne.current.scrollIntoView()}>Lees meer</button>
-          </div>
+        </div>
       </div>
       <div className="custom-container-narrow flex-col my-5" id="projectsContainer" ref={scrollOne}>
         <h1 className="font-nunito mb-5 mt-24 cursor-pointer" onClick={() => scrollOne.current.scrollIntoView()}>Projecten</h1>

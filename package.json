@@ -6,9 +6,10 @@
   "scripts": {
     "build:postcss": "postcss src/EntryPoint/index.css -d public/css",
     "test": "echo test",
-    "build": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss",
+    "build": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" --splitting --minify-whitespace --minify-identifiers --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss && npm run uglify && node clean.js",
     "watch": "node esbuild.js",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -d public",
+    "uglify": "uglifyjs --compress --mangle -o public/js/index.js -- public/js/index.js"
   },
   "repository": {
     "type": "git",
@@ -50,7 +51,8 @@
     "semver": "7.3.2",
     "tailwindcss": "^2.0.2",
     "ts-pnp": "1.2.0",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "uglify-es": "^3.3.9"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
