@@ -7,11 +7,11 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Deploy
         uses: alex-page/blazing-fast-gh-pages-deploy@v1.0.0
         with:
           deploy-branch: master
           site-directory: public
-          repo-token: ${{ secrets.GH_PAT }}
+          repo-token: ${{ secrets.GHPAGES }}
