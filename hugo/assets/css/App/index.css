@@ -1,0 +1,15 @@
+.custom-container-narrow {
+    @apply container 2xl:px-80 xl:px-72 lg:px-44 md:px-24 sm:px-14 px-5 flex items-center justify-center;
+    min-height: 59vh;
+}
+
+.project-item {
+    @apply px-5 py-4 mb-0 border-gray-400 hover:border-indigo-600 shadow-md rounded w-full md:w-3/4 transition-all duration-300 ease-in-out;
+    border-width: 1px;
+}
+
+.project-item:hover {
+    @apply rounded-2xl;
+    transform: scale(1.05);
+    z-index: 0;
+}

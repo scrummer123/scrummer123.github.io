@@ -1,0 +1,32 @@
+{{ $cssopts := dict "config" "./hugo/assets/css/postcss.config.js" }}
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth;" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="{{ .Site.Params.Description }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Site.Params.Title }}</title>
+    {{ $css := resources.Get "css/EntryPoint/index.css" }}
+    {{ $style := $css | resources.PostCSS $cssopts }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
+    <link rel="preload" href="{{ .Site.BaseURL }}fonts/Nunito-Bold.ttf" as="font" type="font/ttf">
+    <link rel="preload" href="{{ .Site.BaseURL }}fonts/DaddyRewind-MVYAP.ttf" as="font" type="font/ttf">
+
+  </head>
+  <body>
+    <div id="root"></div>
+
+    {{ with resources.Get "scripts/EntryPoint/index.tsx" }}
+    {{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"") }}
+    {{ $script := . | js.Build $options }}
+    <script src="{{ $script.Permalink }}"></script>
+    {{ end }}
+
+    {{ with resources.Get "scripts/App/index.tsx" }}
+    {{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"") }}
+    {{ $script := . | js.Build $options }}
+    <script src="{{ $script.Permalink }}"></script>
+    {{ end }}
+  </body>
+</html>
