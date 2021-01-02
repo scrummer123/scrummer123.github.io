@@ -4,13 +4,13 @@
   "description": "A porftolio made with React and TypeScript",
   "main": "index.js",
   "scripts": {
-    "build:postcss": "postcss hugo/assets/EntryPoint/index.css -d public/css",
+    "build:postcss": "postcss hugo/assets/css/EntryPoint/index.css -d public/css",
     "test": "echo test",
     "build": "esbuild --define:process.env.NODE_ENV=\\\"development\\\" --splitting --minify-whitespace --minify-identifiers --bundle src/EntryPoint/index.tsx --outdir=public/js --format=esm && npm run build:postcss && npm run uglify",
     "watch": "node esbuild.js",
     "deploy": "gh-pages -d public",
     "uglify": "uglifyjs --compress --mangle -o public/js/index.js -- public/js/index.js",
-    "hugo:watch": "hugo server --config=config/hugo.config.yml --destination=public --port=8080"
+    "hugo:watch": "hugo server --config=config/config.yaml --destination=public --port=8080"
   },
   "repository": {
     "type": "git",

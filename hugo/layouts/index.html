@@ -1,32 +1,47 @@
-{{ $cssopts := dict "config" "./hugo/assets/css/postcss.config.js" }}
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth;" lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="{{ .Site.Params.Description }}"/>
+    <meta name="description" content="{{ $.Site.Params.Description }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Site.Params.Title }}</title>
-    {{ $css := resources.Get "css/EntryPoint/index.css" }}
-    {{ $style := $css | resources.PostCSS $cssopts }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" />
-    <link rel="stylesheet" href="{{ $style.Permalink }}" />
-    <link rel="preload" href="{{ .Site.BaseURL }}fonts/Nunito-Bold.ttf" as="font" type="font/ttf">
-    <link rel="preload" href="{{ .Site.BaseURL }}fonts/DaddyRewind-MVYAP.ttf" as="font" type="font/ttf">
+    <title>{{ .Site.Title }}</title>
+
+
+    {{ with resources.Get "css/tailwind.css" }}
+    {{ $cssopts := (dict "config" "./config/postcss.config.js") }}
+    {{ $style := . | postCSS $cssopts }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+    {{ end }}
+
+    {{ with resources.Get "css/App/index.css" }}
+    {{ $cssopts := (dict "config" "./config/postcss.config.js") }}
+    {{ $style := . | postCSS $cssopts }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+    {{ end }}
+
+    {{ with resources.Get "css/tailwindtail.css" }}
+    {{ $cssopts := (dict "config" "./config/postcss.config.js") }}
+    {{ $style := . | postCSS $cssopts }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+    {{ end }}
+
+    <link rel="preload" href="/fonts/Nunito-Bold.ttf" as="font" type="font/ttf">
+    <link rel="preload" href="/fonts/DaddyRewind-MVYAP.ttf" as="font" type="font/ttf">
 
   </head>
-  <body>
+  <body style="margin: 0">
     <div id="root"></div>
 
     {{ with resources.Get "scripts/EntryPoint/index.tsx" }}
     {{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"") }}
     {{ $script := . | js.Build $options }}
-    <script src="{{ $script.Permalink }}"></script>
+    <script src="{{ $script.RelPermalink }}"></script>
     {{ end }}
 
     {{ with resources.Get "scripts/App/index.tsx" }}
     {{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"") }}
     {{ $script := . | js.Build $options }}
-    <script src="{{ $script.Permalink }}"></script>
+    <script src="{{ $script.RelPermalink }}"></script>
     {{ end }}
   </body>
 </html>

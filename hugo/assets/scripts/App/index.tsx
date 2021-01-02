@@ -48,11 +48,11 @@ const AppData: React.FC = () => {
   return (
     <>
       <div id="infoBox">
-        <button aria-label={"Show work experience"} className="w-full rounded-none hover:bg-indigo-500 shadow-none">Bekijk werkervaring</button>
+        <button aria-label="Show work experience" className="top-button-full">Bekijk werkervaring</button>
       </div>
       <div className="navbar">
-        <div data-stuck={scrolledPassed} className="custom-container flex justify-between">
-          <h1 className="text-5xl font-rewind mt-1.5">Simon</h1>
+        <div data-stuck={scrolledPassed} className="navbar-container">
+          <h1 className="navbar-logo">Simon</h1>
           <div className="nav-container">
             <a href="/?status=WIP" className="nav-item">Home</a>
             <a href="/?status=WIP" className="nav-item">About</a>
