@@ -9,10 +9,10 @@ declare namespace FrontEndDataTypes {
   }
 
   interface FrontEndData {
-    scrolledPassed?: boolean;
+    scrolledPassed: boolean;
   }
 
-  interface FrontEndDataDispatch extends FrontEndData {
+  interface FrontEndDataDispatch extends Partial<FrontEndData> {
     type: "TOGGLESCROLLEDPASSED";
   }
 

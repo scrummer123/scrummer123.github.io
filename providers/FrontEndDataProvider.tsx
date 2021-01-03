@@ -2,7 +2,7 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 
 const FrontEndDataContext = React.createContext<
-  FrontEndDataTypes.FrontEndDataContext | undefined
+  FEDT.FrontEndDataContext | undefined
 >(undefined);
 
 export const FrontEndDataProvider: React.FC = ({ children }) => {
@@ -10,7 +10,7 @@ export const FrontEndDataProvider: React.FC = ({ children }) => {
     scrolledPassed: false,
   };
 
-  const reducer: FrontEndDataTypes.ReducerFunction = (
+  const reducer: FEDT.ReducerFunction = (
     prevState = initState,
     action
   ): FEDT.FrontEndData => {
@@ -24,7 +24,7 @@ export const FrontEndDataProvider: React.FC = ({ children }) => {
 
   const frontEndDataActions: FEDT.FrontEndDataActions = {
     toggleScrolledPassed() {
-      dispatch({ type: "TOGGLESCROLLEDPASSED" });
+      dispatch({ type: "TOGGLESCROLLEDPASSED", scrolledPassed: true });
     },
   };
 
