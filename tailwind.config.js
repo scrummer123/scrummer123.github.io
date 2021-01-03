@@ -1,4 +1,8 @@
 module.exports = {
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+    },
     purge: ["./{pages,components}/**/*.{js,jsx,ts,tsx}", "./styles/**/*.{scss,sass}"],
     darkMode: "class", // or 'media' or 'class'
     theme: {

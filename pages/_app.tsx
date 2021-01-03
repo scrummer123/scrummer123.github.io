@@ -1,13 +1,20 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-
-// My stuff
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { ThemeProvider } from "next-themes";
+import { FrontEndDataProvider } from "../providers/FrontEndDataProvider";
 
 // custom styles needed for every page
-import "../styles/index.scss";
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const CombinedProviders: React.FC<{ children: JSX.Element }> = ({
+    children,
+  }) => (
+    <FrontEndDataProvider>
+      <ThemeProvider attribute="class">{children}</ThemeProvider>
+    </FrontEndDataProvider>
+  );
+
   return (
     <div>
       <Head>
@@ -29,9 +36,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           type="font/ttf"
         />
       </Head>
-      <ThemeProvider>
+      <CombinedProviders>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </CombinedProviders>
     </div>
   );
 }
