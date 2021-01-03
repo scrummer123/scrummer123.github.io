@@ -1,13 +1,10 @@
 import React from "react";
 
-import {
-  FrontEndDataContext,
-  useFrontEndData,
-} from "../providers/FrontEndDataProvider";
+import { useFrontEndData } from "@portfolio-providers/FrontEndDataProvider";
 
 const Home: React.FC<any> = ({ data }) => {
   const scrollOne = React.useRef(null);
-  const { frontEndData }: FrontEndDataContext = useFrontEndData();
+  const { frontEndData }: FEDT.FrontEndDataContext = useFrontEndData();
 
   const renderProjects = (project, key) => (
     <a

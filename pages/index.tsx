@@ -4,15 +4,12 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 // React stuff
 import React from "react";
 
-// My type imports
-import { FetchData } from "../types/pages/index.page";
 // My components
-// import Home from "../components/Home";
 import Nav from "../components/Nav";
 import Home from "../components/Home";
 
 export const getStaticProps: GetStaticProps = async () => {
-  let repos: FetchData = { props: {} };
+  let repos: Fetch.Data = { props: {} };
   try {
     const fetchOpts: RequestInit = {
       method: "GET",
@@ -31,7 +28,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return repos;
 };
-
 const HomePage: React.FC = ({
   data,
   error,

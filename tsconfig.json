@@ -16,7 +16,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "baseUrl": "./",
+    "paths": {
+      "@portfolio-providers/*": ["./providers/*"],
+      "@portfolio-components/*": ["./components/*"],
+      "@portfolio-pages/*": ["./pages/*"],
+      "@portfolio-styles/*": ["./styles/*"],
+      "@portfolio-public/*": ["./public/*"],
+      "@portfolio-types/*": ["./types/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -25,5 +35,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

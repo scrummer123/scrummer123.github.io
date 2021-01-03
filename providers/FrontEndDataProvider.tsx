@@ -1,44 +1,19 @@
 import React from "react";
-
-// Data is not required when dispatching
-interface FrontEndData {
-  scrolledPassed?: boolean;
-}
-
-interface FrontEndDataDispatch extends FrontEndData {
-  type: "TOGGLESCROLLEDPASSED";
-}
-
-type DispatchFunction = React.Dispatch<
-  React.SetStateAction<FrontEndDataDispatch>
->;
-type ReducerFunction = React.Reducer<
-  FrontEndData,
-  React.ReducerAction<React.Reducer<any, any>>
->;
-
-interface FrontEndDataActions {
-  toggleScrolledPassed(): void;
-}
-
-export interface FrontEndDataContext extends FrontEndDataActions {
-  frontEndData: FrontEndData;
-  setFrontEndData: DispatchFunction;
-}
+import { FaEdit } from "react-icons/fa";
 
 const FrontEndDataContext = React.createContext<
-  FrontEndDataContext | undefined
+  FrontEndDataTypes.FrontEndDataContext | undefined
 >(undefined);
 
 export const FrontEndDataProvider: React.FC = ({ children }) => {
-  const initState: FrontEndData = {
+  const initState: FEDT.FrontEndData = {
     scrolledPassed: false,
   };
 
-  const reducer: ReducerFunction = (
+  const reducer: FrontEndDataTypes.ReducerFunction = (
     prevState = initState,
     action
-  ): FrontEndData => {
+  ): FEDT.FrontEndData => {
     switch (action.type) {
       case "TOGGLESCROLLEDPASSED":
         return { ...prevState, scrolledPassed: !prevState.scrolledPassed };
@@ -47,16 +22,16 @@ export const FrontEndDataProvider: React.FC = ({ children }) => {
     }
   };
 
-  const frontEndDataActions: FrontEndDataActions = {
+  const frontEndDataActions: FEDT.FrontEndDataActions = {
     toggleScrolledPassed() {
       dispatch({ type: "TOGGLESCROLLEDPASSED" });
     },
   };
 
-  const [state, dispatch]: [FrontEndData, DispatchFunction] = React.useReducer(
-    reducer,
-    initState
-  );
+  const [state, dispatch]: [
+    FEDT.FrontEndData,
+    FEDT.DispatchFunction
+  ] = React.useReducer(reducer, initState);
 
   return (
     <FrontEndDataContext.Provider

@@ -2,10 +2,9 @@ import React from "react";
 import { FaMoon } from "react-icons/fa";
 
 import { useTheme } from "next-themes";
-import {
-  useFrontEndData,
-  FrontEndDataContext,
-} from "../providers/FrontEndDataProvider";
+
+// My providers
+import { useFrontEndData } from "@portfolio-providers/FrontEndDataProvider";
 
 const Nav = () => {
   const { theme, setTheme } = useTheme();
@@ -13,7 +12,7 @@ const Nav = () => {
   const {
     toggleScrolledPassed,
     frontEndData,
-  }: FrontEndDataContext = useFrontEndData();
+  }: FEDT.FrontEndDataContext = useFrontEndData();
 
   const toggleTheme = () => {
     const theme = localStorage.getItem("theme") === "dark" ? "light" : "dark";
