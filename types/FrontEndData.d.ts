@@ -20,9 +20,9 @@ declare namespace FrontEndDataTypes {
     React.SetStateAction<FrontEndDataDispatch>
   >;
 
-  type ReducerFunction = React.Reducer<
+  type ReducerFunction<T extends FrontEndDataDispatch> = React.Reducer<
     FrontEndData,
-    React.ReducerAction<React.Reducer<any, any>>
+    React.ReducerAction<React.Reducer<any, T>>
   >;
 }
 

@@ -10,7 +10,7 @@ export const FrontEndDataProvider: React.FC = ({ children }) => {
     scrolledPassed: false,
   };
 
-  const reducer: FEDT.ReducerFunction = (
+  const reducer: FEDT.ReducerFunction<FEDT.FrontEndDataDispatch> = (
     prevState = initState,
     action
   ): FEDT.FrontEndData => {
