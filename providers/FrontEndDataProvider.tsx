@@ -1,19 +1,29 @@
 import React from "react";
-import { FaEdit } from "react-icons/fa";
+
+// My types
+import type {
+  DispatchType,
+  FrontEndDataType,
+  FrontEndDataActionsType,
+  FrontEndDataContextType,
+  ReducerFuncType,
+} from "@portfolio-types/FrontEndDataProvider";
 
 const FrontEndDataContext = React.createContext<
-  FEDT.FrontEndDataContext | undefined
+  FrontEndDataContextType & {
+    frontEndDataActions: Partial<FrontEndDataActionsType>;
+  }
 >(undefined);
 
 export const FrontEndDataProvider: React.FC = ({ children }) => {
-  const initState: FEDT.FrontEndData = {
+  const initState: FrontEndDataType = {
     scrolledPassed: false,
   };
 
-  const reducer: FEDT.ReducerFunction<FEDT.FrontEndDataDispatch> = (
+  const reducer: ReducerFuncType = (
     prevState = initState,
     action
-  ): FEDT.FrontEndData => {
+  ): FrontEndDataType => {
     switch (action.type) {
       case "TOGGLESCROLLEDPASSED":
         return { ...prevState, scrolledPassed: !prevState.scrolledPassed };
@@ -22,23 +32,23 @@ export const FrontEndDataProvider: React.FC = ({ children }) => {
     }
   };
 
-  const frontEndDataActions: FEDT.FrontEndDataActions = {
+  const frontEndDataActions: FrontEndDataActionsType = {
     toggleScrolledPassed() {
       dispatch({ type: "TOGGLESCROLLEDPASSED", scrolledPassed: true });
     },
   };
 
   const [state, dispatch]: [
-    FEDT.FrontEndData,
-    FEDT.DispatchFunction
-  ] = React.useReducer(reducer, initState);
+    FrontEndDataType,
+    React.Dispatch<DispatchType>
+  ] = React.useReducer<ReducerFuncType>(reducer, initState);
 
   return (
     <FrontEndDataContext.Provider
       value={{
         frontEndData: state,
         setFrontEndData: dispatch,
-        ...frontEndDataActions,
+        frontEndDataActions,
       }}
     >
       {children}
