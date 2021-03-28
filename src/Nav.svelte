@@ -1,6 +1,6 @@
 <style global lang="postcss">
 .brand {
-  @apply my-auto font-rewind text-5xl sm:mr-64;
+  @apply my-auto font-rewind text-5xl md:mr-52 xl:mr-64 mr-auto;
 }
 
 .topButton {
@@ -18,7 +18,7 @@ nav {
 }
 
 #sub-nav {
-  @apply flex justify-evenly justify-items-center  dark:bg-indigo-navbar bg-indigo-navbarLight;
+  @apply flex justify-evenly justify-items-center  dark:bg-indigo-navbar bg-indigo-navbarLight px-8;
   backdrop-filter: blur(20px);
   transition: all 0.5s ease;
 }
@@ -43,6 +43,11 @@ nav {
 nav ul > li {
   @apply h-full inline-block;
   margin: 0 5px 0 0;
+}
+
+nav ul > li.nav-item,
+nav ul > li.spacer {
+  @apply hidden sm:block;
 }
 
 nav ul > li.spacer {
@@ -135,7 +140,7 @@ $: isActive = (str) => active === str && "selected";
     <h1 class="brand">Simon</h1>
     <ul>
       {#each navItems as navItem}
-        <li>
+        <li class="nav-item">
           <a class="{isActive(navItem.uri)}" href="{navItem.uri}"
             ><p>{navItem.name}</p></a>
         </li>
