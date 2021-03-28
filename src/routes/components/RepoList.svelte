@@ -1,16 +1,48 @@
 <style scoped lang="postcss">
-h2 {
-  @apply mx-auto mb-7 w-full text-center;
-  margin-top: 65px;
-}
-
 div,
-ul {
-  @apply mx-72 inline-block;
+a {
+  @apply inline-block;
 }
 
-ul > li {
-  @apply rounded border border-gray-400 mb-3 w-full;
+a > h2 {
+  @apply text-center text-3xl;
+}
+
+a#wrapper-link {
+  @apply w-full mb-3;
+  margin-top: 7vh;
+}
+
+div {
+  width: 100%;
+}
+
+ul {
+  @apply mx-auto w-5/12;
+}
+
+ul > a {
+  @apply rounded border border-gray-400 mb-0 w-full py-4 px-5 hover:border-indigo-600 hover:bg-indigo-600 transition-all;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+ul > a.first {
+  margin-top: 40px;
+}
+
+ul > a.last {
+  margin-bottom: 40px;
+}
+
+ul > a:hover {
+  transform: scale(1.04);
+  border-radius: 15px;
+}
+
+ul > a > li > h2 {
+  font-size: 130%;
 }
 
 .error-wrapper {
@@ -45,14 +77,23 @@ onMount(() => {
 });
 </script>
 
-<a href="#wrapper"><h2>Projecten</h2></a>
+<a id="wrapper-link" href="#wrapper"><h2>Projecten</h2></a>
 <div id="wrapper">
   {#await promise}
     <p class="waitingOrFailed">Data inladen...</p>
   {:then projects}
     <ul>
-      {#each projects as project}
-        <li>{project.name}</li>
+      {#each Object.entries(projects) as [key, project]}
+        <a
+          href="{project.html_url}"
+          class:first="{key == 0}"
+          class:last="{projects.length - 1 == key}"
+          target="_blank">
+          <li>
+            <h2>{project.name || "Geen naam"}</h2>
+            <p>{project.description || "Geen omschrijving"}</p>
+          </li>
+        </a>
       {/each}
     </ul>
   {:catch error}

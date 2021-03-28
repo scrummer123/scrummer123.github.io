@@ -13,6 +13,7 @@ li {
 
 nav {
   @apply sticky w-full inline-block;
+  z-index: 1;
   top: -0.1px;
 }
 
@@ -40,7 +41,18 @@ nav {
 }
 
 nav ul > li {
+  @apply h-full inline-block;
   margin: 0 5px 0 0;
+}
+
+nav ul > li.spacer {
+  @apply h-1/3 bg-gray-600 opacity-30 dark:bg-indigo-400;
+  margin: 30px 20px 0 8px;
+  width: 1px;
+}
+
+nav ul > li > button {
+  @apply my-5 px-3 bg-gray-300 shadow-lg text-gray-600 dark:text-gray-200;
 }
 
 nav ul > li > a {
@@ -48,7 +60,7 @@ nav ul > li > a {
 }
 
 nav ul > li > a:after {
-  @apply bg-indigo-300 dark:bg-indigo-600 opacity-0;
+  @apply bg-gray-300 dark:bg-indigo-600 opacity-0;
   position: absolute;
   content: "";
   height: 3px;
@@ -65,7 +77,7 @@ nav ul > li > a:hover:after {
 }
 
 nav ul > li > a.selected {
-  @apply dark:bg-indigo-700 cursor-default;
+  @apply cursor-default bg-gray-200 dark:bg-indigo-700;
 }
 
 nav ul > li > a.selected:hover:after {
@@ -75,6 +87,7 @@ nav ul > li > a.selected:hover:after {
 
 <script>
 import { onMount } from "svelte";
+import WiMoonAltFirstQuarter from "svelte-icons/wi/WiMoonAltFirstQuarter.svelte";
 
 const navItems = [
   {
@@ -106,13 +119,17 @@ onMount(() => {
   observer.observe(document.getElementById("sub-nav"));
 });
 
+function toggleTheme() {
+  localStorage.theme = localStorage.theme === "light" ? "dark" : "light";
+  document.body.classList = localStorage.theme;
+}
+
 export let active;
 
 $: isActive = (str) => active === str && "selected";
 </script>
 
-<button aria-label="Show work experience" class="topButton"
-  >Bekijk werkervaring</button>
+<button aria-label="Show work experience" class="topButton">Bekijk CV</button>
 <nav>
   <div id="sub-nav" class="sub-nav">
     <h1 class="brand">Simon</h1>
@@ -123,6 +140,11 @@ $: isActive = (str) => active === str && "selected";
             ><p>{navItem.name}</p></a>
         </li>
       {/each}
+      <li class="spacer"></li>
+      <li>
+        <button on:click="{toggleTheme}" style="width: 57px"
+          ><WiMoonAltFirstQuarter /></button>
+      </li>
     </ul>
   </div>
   <div class="stay-fixed"></div>
