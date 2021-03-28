@@ -1,4 +1,4 @@
-<style global type="text/css" lang="postcss">
+<style global lang="postcss">
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,6 +46,10 @@ a {
 img {
   width: 100%;
   height: 100%;
+}
+
+.has-dark-mode {
+  @apply rounded border border-gray-400 dark:hover:border-indigo-600 dark:hover:bg-indigo-600 hover:border-indigo-400 hover:bg-indigo-300 shadow-lg;
 }
 </style>
 

@@ -22,7 +22,7 @@ ul {
 }
 
 ul > a {
-  @apply rounded border border-gray-400 mb-0 w-full py-4 px-5 hover:border-indigo-600 hover:bg-indigo-600 transition-all;
+  @apply mb-0 w-full py-4 px-5;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;
@@ -88,6 +88,7 @@ onMount(() => {
           href="{project.html_url}"
           class:first="{key == 0}"
           class:last="{projects.length - 1 == key}"
+          class="has-dark-mode"
           target="_blank">
           <li>
             <h2>{project.name || "Geen naam"}</h2>
