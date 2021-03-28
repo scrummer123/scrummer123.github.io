@@ -1,3 +1,7 @@
-<script></script>
-<style></style>
-<h1>Home</h1>
+<script>
+import Intro from "./components/Intro.svelte";
+import RepoList from "./components/RepoList.svelte";
+</script>
+
+<Intro />
+<RepoList />
