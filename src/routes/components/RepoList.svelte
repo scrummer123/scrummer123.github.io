@@ -1,7 +1,7 @@
 <style scoped lang="postcss">
 h2 {
   @apply mx-auto mb-7 w-full text-center;
-  margin-top: 75px;
+  margin-top: 65px;
 }
 
 div,
@@ -38,10 +38,10 @@ promise = (async () => {
 
 onMount(() => {
   const wrapper = document.getElementById("wrapper");
-  if (wrapper.firstChild instanceof HTMLParagraphElement) {
+  if (promise instanceof Error) {
     wrapper.classList = "";
     wrapper.classList.add("error-wrapper");
-  }
+  } else wrapper.classList.remove("error-wrapper");
 });
 </script>
 
