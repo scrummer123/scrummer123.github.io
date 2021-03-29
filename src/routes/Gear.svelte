@@ -7,7 +7,7 @@ div {
 }
 
 div#wrapper > div#content {
-  @apply block w-1/2 mx-auto;
+  @apply block w-1/3 mx-auto;
 }
 </style>
 

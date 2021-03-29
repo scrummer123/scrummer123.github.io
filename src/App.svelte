@@ -29,6 +29,10 @@ p {
 h1 {
   @apply dark:text-white text-3xl font-nunito;
 }
+h1.pageTitle {
+  @apply text-4xl mb-3;
+}
+
 h2 {
   @apply dark:text-white text-2xl font-nunito;
 }

@@ -24,7 +24,7 @@
     <p>
       Leuk dat je besloot een kijkje te nemen naar mijn personalia. Mijn naam is
       Simon, ik ben een software ontwikkelaar met veel passie en ambitie voor
-      alles wat ik maak. Wil je meer over mij weten? Neem dan een kijkje op mijn
+      alles wat ik maak. Wil je meer over mij weten? Neem dan een kijkje op deze
       site...
     </p>
   </div>

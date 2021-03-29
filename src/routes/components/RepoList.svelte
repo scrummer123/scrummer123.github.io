@@ -9,7 +9,7 @@ a > h2 {
 }
 
 a#wrapper-link {
-  @apply w-full mb-3;
+  @apply w-full mb-3 transition-none;
   margin-top: 7vh;
 }
 
@@ -23,6 +23,7 @@ ul {
 
 ul > a {
   @apply mb-0 w-full py-4 px-5;
+  z-index: 3;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;
@@ -80,7 +81,7 @@ onMount(() => {
 <a id="wrapper-link" href="#wrapper"><h2>Projecten</h2></a>
 <div id="wrapper">
   {#await promise}
-    <p class="waitingOrFailed">Data inladen...</p>
+    <p class="waitingOrFailed">Loading repositories...</p>
   {:then projects}
     <ul>
       {#each Object.entries(projects) as [key, project]}

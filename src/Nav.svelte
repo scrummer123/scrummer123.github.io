@@ -13,12 +13,13 @@ li {
 
 nav {
   @apply sticky w-full inline-block;
-  z-index: 1;
+  z-index: 4;
   top: -0.1px;
 }
 
 #sub-nav {
-  @apply flex justify-evenly justify-items-center  dark:bg-indigo-navbar bg-indigo-navbarLight px-8;
+  @apply flex justify-evenly justify-items-center bg-gradient-to-b from-white to-indigo-navbarLight dark:from-indigo-navbar dark:to-indigo-navbarGradient px-8;
+  background-position: 500% 100%;
   backdrop-filter: blur(20px);
   transition: all 0.5s ease;
 }
@@ -34,6 +35,7 @@ nav {
 .stay-fixed {
   @apply w-full py-0;
   transition: all 0.5s ease;
+  z-index: 1;
 }
 
 .stay-fixed-sticky {
@@ -113,7 +115,7 @@ onMount(() => {
   const observer = new IntersectionObserver(
     ([e]) => {
       e.target.classList.toggle("sub-nav-sticky", e.intersectionRatio < 1);
-      e.target.nextElementSibling.classList.toggle(
+      e.target.parentNode.nextElementSibling.classList.toggle(
         "stay-fixed-sticky",
         e.intersectionRatio < 1
       );
@@ -152,5 +154,5 @@ $: isActive = (str) => active === str && "selected";
       </li>
     </ul>
   </div>
-  <div class="stay-fixed"></div>
 </nav>
+<div class="stay-fixed"></div>

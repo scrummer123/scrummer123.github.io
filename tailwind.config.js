@@ -28,8 +28,9 @@ module.exports = {
       colors: {
         indigo: {
           1000: "#080520",
-          navbar: "rgba(8,5,32,.7)",
-          navbarLight: "rgba(255,255,255,.7)",
+          navbar: "rgba(8,5,32,.975)",
+          navbarGradient: "rgba(8,5,32,.55)",
+          navbarLight: "rgba(255,255,255,.55)",
         },
       },
       fontFamily: {
@@ -114,7 +115,7 @@ module.exports = {
     fontVariantNumeric: false, //	The font-variant-numeric utilities like lining-nums
     fontWeight: true, //	The font-weight utilities like font-medium
     gap: false, //	The gap utilities like gap-x-28
-    gradientColorStops: false, //	The gradient-color-stops utilities like via-green-700
+    gradientColorStops: true, //	The gradient-color-stops utilities like via-green-700
     gridAutoColumns: false, //	The grid-auto-columns utilities like auto-cols-min
     gridAutoFlow: false, //	The grid-auto-flow utilities like grid-flow-col
     gridAutoRows: false, //	The grid-auto-rows utilities like auto-rows-min
