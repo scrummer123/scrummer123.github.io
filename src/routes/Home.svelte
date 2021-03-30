@@ -21,7 +21,7 @@ promise = (async () => {
     Authorization:
       "Basic " +
       btoa(
-        "2d3fa6644cb348e1b986908b79479f47" + ":" + process.env.CLIENT_SECRET
+        "2d3fa6644cb348e1b986908b79479f47" + ":" + import.meta.env.CLIENT_SECRET
       ),
   };
 

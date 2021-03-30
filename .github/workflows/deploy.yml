@@ -1,0 +1,14 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        env:
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
