@@ -28,9 +28,9 @@ module.exports = {
       colors: {
         indigo: {
           1000: "#080520",
-          navbar: "rgba(8,5,32,.975)",
-          navbarGradient: "rgba(8,5,32,.55)",
-          navbarLight: "rgba(255,255,255,.55)",
+          navbar: "rgba(8,5,32,.97)",
+          navbarGradient: "rgba(8,5,32,.6)",
+          navbarLight: "rgba(255,255,255,.6)",
         },
       },
       fontFamily: {

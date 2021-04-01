@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    CLIENT_SECRET: process.env.CLIENT_SECRET,
+    LASTFM: process.env.LASTFM,
   },
   mount: {
     dist: "/",

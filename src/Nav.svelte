@@ -63,14 +63,15 @@ nav ul > li > button {
 }
 
 nav ul > li > a {
+  @apply bg-transparent;
   display: inline-block;
 }
 
 nav ul > li > a:after {
-  @apply bg-gray-300 dark:bg-indigo-600 opacity-0;
+  @apply bg-gray-400 dark:bg-indigo-600 opacity-0;
   position: absolute;
   content: "";
-  height: 3px;
+  height: 2px;
   border-radius: 0px 0px 2px 2px;
   width: 100%;
   left: 0;
@@ -136,7 +137,10 @@ export let active;
 $: isActive = (str) => active === str && "selected";
 </script>
 
-<button aria-label="Show work experience" class="topButton">Bekijk CV</button>
+<button
+  aria-label="Show work experience"
+  class="topButton"
+  on:click="{() => window.open('./img/cv.png')}">Bekijk CV</button>
 <nav>
   <div id="sub-nav" class="sub-nav">
     <h1 class="brand">Simon</h1>

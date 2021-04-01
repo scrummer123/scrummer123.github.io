@@ -31,6 +31,7 @@ p {
 }
 
 .school-image-wrapper:before {
+  @apply border-gray-400 dark:border-gray-800;
   content: "";
   position: absolute;
   left: 0;
@@ -38,12 +39,12 @@ p {
   width: 60px;
   height: 100px;
   border-width: 1px 0 0 1px;
-  border-color: rgba(255, 255, 255, 0.6);
   border-style: solid;
   border-radius: 15px 0 0 0;
 }
 
 .school-image-wrapper:after {
+  @apply border-gray-400 dark:border-gray-800;
   content: "";
   position: absolute;
   right: 0;
@@ -51,7 +52,6 @@ p {
   width: 60px;
   height: 30px;
   border-width: 0 1px 1px 0px;
-  border-color: rgba(255, 255, 255, 0.6);
   border-style: solid;
   border-radius: 0 0 15px 0;
 }

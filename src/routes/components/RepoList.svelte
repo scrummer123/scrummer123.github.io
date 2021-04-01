@@ -33,10 +33,6 @@ ul > a.first {
   margin-top: 40px;
 }
 
-ul > a.last {
-  margin-bottom: 40px;
-}
-
 ul > a:hover {
   transform: scale(1.04);
   border-radius: 15px;
@@ -88,7 +84,6 @@ onMount(() => {
         <a
           href="{project.html_url}"
           class:first="{key == 0}"
-          class:last="{projects.length - 1 == key}"
           class="has-dark-mode"
           target="_blank">
           <li>

@@ -61,6 +61,7 @@ img {
 import Navaid from "navaid";
 import { onDestroy } from "svelte";
 import Nav from "./Nav.svelte";
+import Footer from "./Footer.svelte";
 
 localStorage.theme ||= "dark";
 localStorage.theme === "dark"
@@ -113,3 +114,5 @@ onDestroy(router.unlisten);
 <main>
   <svelte:component this="{Route}" params="{params}" />
 </main>
+
+<Footer />
