@@ -1,18 +1,18 @@
 <style scoped lang="postcss">
 .root {
-  @apply flex md:mx-auto mx-5;
+  @apply flex md:mx-auto mx-5 sm:px-5 flex-col sm:flex-row;
 
   min-height: 65vh;
 }
 
 .root > img {
-  @apply m-auto mr-0 hidden sm:block;
+  @apply m-auto pb-7 sm:pb-0 sm:mr-0;
   max-width: 240px;
   border-radius: 100%;
 }
 
 .root > div {
-  @apply ml-10 max-w-lg m-auto;
+  @apply mx-3 my-auto sm:ml-10 max-w-lg sm:m-auto;
   height: 1%;
 }
 </style>

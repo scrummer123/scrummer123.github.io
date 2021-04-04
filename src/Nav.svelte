@@ -106,10 +106,6 @@ const navItems = [
     name: "About",
     uri: "/about",
   },
-  {
-    name: "Gear",
-    uri: "/gear",
-  },
 ];
 
 onMount(() => {

@@ -1,34 +1,41 @@
 <style scoped lang="postcss">
 footer {
-  @apply dark:border-indigo-400 border-gray-400 py-5 flex mt-8;
-  border-width: 1px 0 0 0;
+  @apply dark:border-indigo-400 border-gray-400 py-5 mt-8;
   border-style: dashed;
-}
-footer > div {
-  @apply mx-auto w-5/12;
-}
-footer small {
-  @apply text-gray-600 dark:text-gray-300;
-  font-style: oblique;
+  border-width: 1px 0 0 0;
 }
 
 footer > div.content-wrapper {
-  @apply w-1/6 flex;
+  @apply mx-5 sm:mx-auto sm:w-5/12 flex justify-between;
 }
+
+footer > div.content-wrapper > div.spotify-root {
+  @apply flex-grow;
+}
+
+footer > div.content-wrapper > div.spotify-root > div.song-data {
+  @apply mr-0;
+}
+
 footer div.spotify {
-  @apply text-green-400 float-left my-auto mr-5;
+  @apply text-green-400 inline-block float-left mr-4 h-full flex justify-items-center;
   width: 32px;
 }
 
-footer > div.content-wrapper {
-  @apply w-5/12 relative flex justify-between;
+footer span.song-spacer {
+  @apply hidden md:inline;
 }
 
-footer div.spotify-content {
-  @apply flex flex-grow;
+footer div.song-data > div > p {
+  @apply inline;
 }
 
-.scroll-up {
+footer div.song-data > div > small {
+  @apply block;
+  font-style: oblique;
+}
+
+footer div.scroll-up {
   @apply cursor-pointer;
   width: 35px;
 }
@@ -72,31 +79,33 @@ promise = (async () => {
 
 <footer>
   <div class="content-wrapper">
-    <div class="spotify-content">
+    <div class="spotify-root">
       {#await promise}
         <p>Fetching recent song...</p>
       {:then song}
         <div class="spotify">
           <FaSpotify />
         </div>
-        <div>
-          <p>
-            <b>{song.artist}</b> - {song.name}
-          </p>
-          {#if song.isPlaying}
-            <small class="song-status">Now playing</small>
-          {:else}
-            <small class="song-status">Recently played</small>
-          {/if}
+        <div class="song-data">
+          <div>
+            <b>{song.artist}</b>
+            <span class="song-spacer"> - </span>
+            <p>{song.name}</p>
+
+            {#if song.isPlaying}
+              <small>Now playing</small>
+            {:else}
+              <small class="song-status">Recently played</small>
+            {/if}
+          </div>
         </div>
       {:catch _err}
         <p>Error fetching song</p>
       {/await}
     </div>
-    <div class="nav">
-      <div class="scroll-up" on:click="{() => window.scrollTo(0, 0)}">
-        <FaChevronUp />
-      </div>
+
+    <div class="scroll-up" on:click="{() => window.scrollTo(0, 0)}">
+      <FaChevronUp />
     </div>
   </div>
 </footer>

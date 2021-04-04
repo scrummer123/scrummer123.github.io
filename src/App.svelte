@@ -23,7 +23,8 @@ span,
 a {
   @apply dark:text-white text-xl;
 }
-p {
+p,
+.scroll-up {
   @apply dark:text-gray-300 text-gray-600 leading-relaxed;
 }
 h1 {
@@ -103,7 +104,6 @@ addEventListener("popstate", track);
 const router = Navaid("/")
   .on("/", () => run(import("./routes/Home.svelte")))
   .on("/about", () => run(import("./routes/About.svelte")))
-  .on("/gear", () => run(import("./routes/Gear.svelte")))
   .listen();
 
 onDestroy(router.unlisten);

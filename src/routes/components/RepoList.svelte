@@ -18,7 +18,7 @@ div {
 }
 
 ul {
-  @apply mx-auto w-5/12;
+  @apply mx-5 sm:mx-auto sm:w-5/12;
 }
 
 ul > a {
