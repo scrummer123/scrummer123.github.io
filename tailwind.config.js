@@ -30,7 +30,7 @@ module.exports = {
           1000: "#080520",
           navbar: "rgba(8,5,32,.97)",
           navbarGradient: "rgba(8,5,32,.7)",
-          navbarLight: "rgba(255,255,255,.6)",
+          navbarLight: "rgba(255,255,255,.7)",
         },
       },
       fontFamily: {

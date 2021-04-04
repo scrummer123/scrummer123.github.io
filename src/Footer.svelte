@@ -6,7 +6,7 @@ footer {
 }
 
 footer > div.content-wrapper {
-  @apply mx-5 sm:mx-auto sm:w-5/12 flex justify-between;
+  @apply mx-5 sm:mx-auto  sm:w-7/12 lg:w-5/12 flex justify-between;
 }
 
 footer > div.content-wrapper > div.spotify-root {
@@ -18,7 +18,7 @@ footer > div.content-wrapper > div.spotify-root > div.song-data {
 }
 
 footer div.spotify {
-  @apply text-green-400 inline-block float-left mr-4 h-full flex justify-items-center;
+  @apply text-green-400 float-left mr-4 h-full flex justify-items-center;
   width: 32px;
 }
 
@@ -26,11 +26,11 @@ footer span.song-spacer {
   @apply hidden md:inline;
 }
 
-footer div.song-data > div > p {
-  @apply inline;
+footer div.song-data > p {
+  @apply block md:inline;
 }
 
-footer div.song-data > div > small {
+footer div.song-data > small {
   @apply block;
   font-style: oblique;
 }
@@ -87,17 +87,15 @@ promise = (async () => {
           <FaSpotify />
         </div>
         <div class="song-data">
-          <div>
-            <b>{song.artist}</b>
-            <span class="song-spacer"> - </span>
-            <p>{song.name}</p>
+          <b>{song.artist}</b>
+          <span class="song-spacer"> - </span>
+          <p>{song.name}</p>
 
-            {#if song.isPlaying}
-              <small>Now playing</small>
-            {:else}
-              <small class="song-status">Recently played</small>
-            {/if}
-          </div>
+          {#if song.isPlaying}
+            <small>Now playing</small>
+          {:else}
+            <small class="song-status">Recently played</small>
+          {/if}
         </div>
       {:catch _err}
         <p>Error fetching song</p>
