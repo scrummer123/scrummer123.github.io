@@ -1,13 +1,17 @@
 <style scoped lang="postcss">
 .root {
-  @apply flex md:mx-auto mx-5 sm:px-5 flex-col sm:flex-row;
+  @apply flex md:mx-auto mx-5 sm:px-5 md:px-16 flex-col sm:flex-row;
 
   min-height: 65vh;
 }
 
-.root > img {
+.root > div.me {
   @apply m-auto pb-7 sm:pb-0 sm:mr-0;
   max-width: 240px;
+  min-width: 170px;
+}
+
+.root > div.me > img {
   border-radius: 100%;
 }
 
@@ -18,7 +22,9 @@
 </style>
 
 <div class="root">
-  <img class="img" src="../img/me.jpeg" alt="photo_of_me" />
+  <div class="me">
+    <img class="img" src="../img/me.jpeg" alt="photo_of_me" />
+  </div>
   <div>
     <h1>Wie ben ik?</h1>
     <p>

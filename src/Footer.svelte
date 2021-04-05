@@ -10,7 +10,7 @@ footer > div.content-wrapper {
 }
 
 footer > div.content-wrapper > div.spotify-root {
-  @apply flex-grow;
+  @apply flex-grow flex;
 }
 
 footer > div.content-wrapper > div.spotify-root > div.song-data {
@@ -18,8 +18,15 @@ footer > div.content-wrapper > div.spotify-root > div.song-data {
 }
 
 footer div.spotify {
-  @apply text-green-400 float-left mr-4 h-full flex justify-items-center;
+  @apply text-green-400 mr-4;
   width: 32px;
+  height: 32px;
+}
+
+footer div.spotify-icon {
+  @apply h-full;
+  display: flex;
+  align-items: center;
 }
 
 footer span.song-spacer {
@@ -59,7 +66,6 @@ promise = (async () => {
   );
 
   const response = await request.json();
-  console.log(response);
   const track = _.get(response, "recenttracks.track[0]", false);
   const isPlaying = _.get(
     response,
@@ -83,8 +89,10 @@ promise = (async () => {
       {#await promise}
         <p>Fetching recent song...</p>
       {:then song}
-        <div class="spotify">
-          <FaSpotify />
+        <div class="spotify-icon">
+          <div class="spotify">
+            <FaSpotify />
+          </div>
         </div>
         <div class="song-data">
           <b>{song.artist}</b>
