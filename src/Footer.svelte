@@ -57,7 +57,7 @@ let promise = Promise.resolve([]);
 
 promise = (async () => {
   const request = await self.fetch(
-    `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=simon-instance&api_key=${
+    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=simon-instance&api_key=${
       import.meta.env.LASTFM
     }&format=json`,
     {
