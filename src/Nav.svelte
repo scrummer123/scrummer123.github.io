@@ -64,18 +64,18 @@ nav #sub-nav ul li.spacer {
   width: 1px;
 }
 
-nav > #sub-nav ul li button {
+nav #sub-nav ul li button {
   @apply my-5 px-3 shadow-none rounded sm:bg-gray-200 sm:dark:bg-indigo-700 bg-transparent;
   width: 50px;
   height: 50px;
 }
 
-#ul li a {
+.nav-part ul li a {
   @apply bg-transparent relative;
   display: inline-block;
 }
 
-#ul li a:after {
+.nav-part ul li a:after {
   @apply bg-gray-400 dark:bg-indigo-600 opacity-0;
   position: absolute;
   content: "";
@@ -87,20 +87,20 @@ nav > #sub-nav ul li button {
   transition: all ease-in-out 0.5s;
 }
 
-#ul li a:hover:after {
+.nav-part ul li a:hover:after {
   bottom: 0px;
   opacity: 1;
 }
 
-#ul li a.selected {
+.nav-part ul li a.selected {
   @apply cursor-default bg-gray-200 dark:bg-indigo-700;
 }
 
-#ul li a.selected:hover:after {
+.nav-part ul li a.selected:hover:after {
   opacity: 0;
 }
 
-#ul li a.mobile-nav-item {
+.nav-part ul li a.mobile-nav-item {
   @apply my-1;
 }
 
@@ -166,7 +166,7 @@ $: isActive = (str) => active === str && "selected";
   class="top-button"
   on:click="{() => window.open('./img/cv.pdf')}">Bekijk CV</button>
 <nav id="nav">
-  <div id="sub-nav">
+  <div id="sub-nav" class="nav-part">
     <h1 class="brand">Simon</h1>
     <ul id="ul">
       {#each navItems as navItem}
@@ -191,7 +191,7 @@ $: isActive = (str) => active === str && "selected";
       </li>
     </ul>
   </div>
-  <div id="mobile-nav" class="mobile-navbar">
+  <div id="mobile-nav" class="mobile-navbar nav-part">
     <ul>
       {#each navItems as navItem}
         <li class="nav-item">
