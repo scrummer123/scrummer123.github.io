@@ -1,7 +1,8 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "My portfolio",
+  "repository": "github:simon-instance/simon-instance.github.io",
   "main": "index.js",
   "scripts": {
     "start:tailwind": "postcss src/tailwind.css -o build/tailwind.css -w",
