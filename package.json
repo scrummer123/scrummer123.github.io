@@ -6,8 +6,8 @@
   "scripts": {
     "start:tailwind": "postcss src/tailwind.css -o build/tailwind.css -w",
     "build:tailwind": "postcss src/tailwind.css -o build/tailwind.css",
-    "start": "snowpack dev",
-    "build": "npm run clean && snowpack build",
+    "start": "npx snowpack dev",
+    "build": "npm run clean && npx snowpack build",
     "clean": "rm -rf ./build",
     "deploy": "rm -rf node_modules/.cache && gh-pages -d build"
   },
