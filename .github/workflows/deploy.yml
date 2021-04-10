@@ -17,12 +17,9 @@ jobs:
 
       - name: Init git config
         run: |
-          git init
-          git remote add origin https://${{ secrets.CONFIG_GHPAGES }}@github.com/${{ secrets.CONFIG_NAME }}/simon-instance.github.io.git
+          git remote set-url origin https://${{ secrets.CONFIG_GHPAGES }}@github.com/${{ secrets.CONFIG_NAME }}/simon-instance.github.io.git
           git config --global user.email ${{ secrets.CONFIG_EMAIL }}
           git config --global user.name ${{ secrets.CONFIG_NAME }}
-          git fetch origin
-          git checkout production
 
       - name: Deploy to gh-pages branch
         run: |
