@@ -70,12 +70,12 @@ nav > #sub-nav ul li button {
   height: 50px;
 }
 
-ul li a {
+#ul li a {
   @apply bg-transparent relative;
   display: inline-block;
 }
 
-ul li a:after {
+#ul li a:after {
   @apply bg-gray-400 dark:bg-indigo-600 opacity-0;
   position: absolute;
   content: "";
@@ -87,20 +87,20 @@ ul li a:after {
   transition: all ease-in-out 0.5s;
 }
 
-ul li a:hover:after {
+#ul li a:hover:after {
   bottom: 0px;
   opacity: 1;
 }
 
-ul li a.selected {
+#ul li a.selected {
   @apply cursor-default bg-gray-200 dark:bg-indigo-700;
 }
 
-ul li a.selected:hover:after {
+#ul li a.selected:hover:after {
   opacity: 0;
 }
 
-ul li a.mobile-nav-item {
+#ul li a.mobile-nav-item {
   @apply my-1;
 }
 
