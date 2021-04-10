@@ -51,7 +51,7 @@ footer div.scroll-up {
 <script>
 import FaSpotify from "svelte-icons/fa/FaSpotify.svelte";
 import FaChevronUp from "svelte-icons/fa/FaChevronUp.svelte";
-import _ from "lodash";
+import get from "lodash/get";
 
 let promise = Promise.resolve([]);
 
@@ -66,8 +66,8 @@ promise = (async () => {
   );
 
   const response = await request.json();
-  const track = _.get(response, "recenttracks.track[0]", false);
-  const isPlaying = _.get(
+  const track = get(response, "recenttracks.track[0]", false);
+  const isPlaying = get(
     response,
     "recenttracks.track[0].@attr.nowplaying",
     false

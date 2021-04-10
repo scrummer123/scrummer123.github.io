@@ -1,8 +1,8 @@
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.NODE_ENV === "production";
 
 module.exports = {
   purge: {
-    content: ["./src/**/*.svelte"],
+    content: ["./src/**/*.svelte", "./src/**/*.html"],
     enabled: production,
   },
   darkMode: "class", // or 'media' or 'class'
@@ -30,7 +30,8 @@ module.exports = {
           1000: "#080520",
           navbar: "rgba(8,5,32,.97)",
           navbarGradient: "rgba(8,5,32,.55)",
-          navbarLight: "rgba(255,255,255,.55)",
+          navbarLight: "rgba(255,255,255,.90)",
+          navbarLightGradient: "rgba(255,255,255,.55)",
         },
       },
       fontFamily: {

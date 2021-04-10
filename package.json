@@ -7,7 +7,9 @@
     "start:tailwind": "postcss src/tailwind.css -o build/tailwind.css -w",
     "build:tailwind": "postcss src/tailwind.css -o build/tailwind.css",
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "npm run clean && snowpack build",
+    "clean": "rm -rf ./build",
+    "deploy": "rm -rf node_modules/.cache && gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "tailwindcss": "^2.0.4"
   },
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "lodash": "^4.17.21",
     "svelte": "^3.35.0",
     "svelte-icons": "^2.1.0",

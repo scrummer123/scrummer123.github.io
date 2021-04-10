@@ -8,7 +8,7 @@ li {
 }
 
 nav {
-  @apply py-9 bg-gradient-to-b from-white to-indigo-navbarLight dark:from-indigo-navbar dark:to-indigo-navbarGradient flex flex-col justify-evenly justify-items-center  px-8;
+  @apply py-9 bg-gradient-to-b from-indigo-navbarLight to-indigo-navbarLightGradient dark:from-indigo-navbar dark:to-indigo-navbarGradient flex flex-col justify-evenly justify-items-center  px-8;
   position: sticky;
   z-index: 4;
   top: -0.1px;
@@ -164,7 +164,7 @@ $: isActive = (str) => active === str && "selected";
 <button
   aria-label="Show work experience"
   class="top-button"
-  on:click="{() => window.open('./img/cv.png')}">Bekijk CV</button>
+  on:click="{() => window.open('./img/cv.pdf')}">Bekijk CV</button>
 <nav id="nav">
   <div id="sub-nav">
     <h1 class="brand">Simon</h1>
@@ -192,6 +192,7 @@ $: isActive = (str) => active === str && "selected";
       {#each navItems as navItem}
         <li class="nav-item">
           <a
+            on:click="{toggleMobileNav}"
             class="{isActive(navItem.uri)} mobile-nav-item"
             href="{navItem.uri}"><p>{navItem.name}</p></a>
         </li>
