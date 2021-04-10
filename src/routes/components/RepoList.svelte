@@ -4,8 +4,12 @@ a {
   @apply inline-block;
 }
 
-a > h2 {
-  @apply text-center text-3xl;
+a h2 {
+  @apply text-3xl;
+}
+
+a h2.title {
+  @apply text-center;
 }
 
 a#wrapper-link {
@@ -21,24 +25,28 @@ ul {
   @apply mx-5 sm:mx-auto sm:w-7/12 lg:w-5/12;
 }
 
-ul > a {
-  @apply mb-0 w-full py-4 px-5;
+ul li {
+  @apply w-full;
+}
+
+ul li a {
+  @apply mb-2 w-full py-4 px-5;
   z-index: 3;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;
 }
 
-ul > a.first {
+ul li a.first {
   margin-top: 40px;
 }
 
-ul > a:hover {
+ul li a:hover {
   transform: scale(1.04);
   border-radius: 15px;
 }
 
-ul > a > li > h2 {
+ul li a h2 {
   font-size: 130%;
 }
 
@@ -74,23 +82,24 @@ onMount(() => {
 });
 </script>
 
-<a id="wrapper-link" href="#wrapper"><h2>Projecten</h2></a>
+<a id="wrapper-link" href="#wrapper"><h2 class="title">Projecten</h2></a>
 <div id="wrapper">
   {#await promise}
     <p class="waitingOrFailed">Loading repositories...</p>
   {:then projects}
     <ul>
       {#each Object.entries(projects) as [key, project]}
-        <a
-          href="{project.html_url}"
-          class:first="{key == 0}"
-          class="has-dark-mode"
-          target="_blank">
-          <li>
+        <li>
+          <a
+            href="{project.html_url}"
+            class:first="{key == 0}"
+            class="has-dark-mode"
+            target="_blank"
+            rel="noreferrer">
             <h2>{project.name || "Geen naam"}</h2>
             <p>{project.description || "Geen omschrijving"}</p>
-          </li>
-        </a>
+          </a>
+        </li>
       {/each}
     </ul>
   {:catch error}

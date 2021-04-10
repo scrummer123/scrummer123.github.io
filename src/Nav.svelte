@@ -44,38 +44,38 @@ nav {
   @apply py-6;
 }
 
-ul > li {
+ul li {
   @apply h-full inline-block;
   margin: 0 5px 0 0;
 }
 
-nav > #sub-nav > ul > li.nav-item,
-nav > #sub-nav > ul > li.spacer {
+nav #sub-nav ul li.nav-item,
+nav #sub-nav ul li.spacer {
   @apply hidden sm:block;
 }
 
-nav > #sub-nav > ul > li.mobile-menu {
+nav #sub-nav ul li.mobile-menu {
   @apply block sm:hidden;
 }
 
-nav > #sub-nav > ul > li.spacer {
+nav #sub-nav ul li.spacer {
   @apply h-1/3 bg-gray-600 opacity-30 dark:bg-indigo-400;
   margin: 30px 20px 0 8px;
   width: 1px;
 }
 
-nav > #sub-nav > ul > li > button {
+nav > #sub-nav ul li button {
   @apply my-5 px-3 shadow-none rounded sm:bg-gray-200 sm:dark:bg-indigo-700 bg-transparent;
   width: 50px;
   height: 50px;
 }
 
-ul > li > a {
+ul li a {
   @apply bg-transparent relative;
   display: inline-block;
 }
 
-ul > li > a:after {
+ul li a:after {
   @apply bg-gray-400 dark:bg-indigo-600 opacity-0;
   position: absolute;
   content: "";
@@ -87,20 +87,20 @@ ul > li > a:after {
   transition: all ease-in-out 0.5s;
 }
 
-ul > li > a:hover:after {
+ul li a:hover:after {
   bottom: 0px;
   opacity: 1;
 }
 
-ul > li > a.selected {
+ul li a.selected {
   @apply cursor-default bg-gray-200 dark:bg-indigo-700;
 }
 
-ul > li > a.selected:hover:after {
+ul li a.selected:hover:after {
   opacity: 0;
 }
 
-ul > li > a.mobile-nav-item {
+ul li a.mobile-nav-item {
   @apply my-1;
 }
 
@@ -168,7 +168,7 @@ $: isActive = (str) => active === str && "selected";
 <nav id="nav">
   <div id="sub-nav">
     <h1 class="brand">Simon</h1>
-    <ul>
+    <ul id="ul">
       {#each navItems as navItem}
         <li class="nav-item">
           <a class="{isActive(navItem.uri)}" href="{navItem.uri}"
@@ -177,13 +177,17 @@ $: isActive = (str) => active === str && "selected";
       {/each}
       <li class="spacer"></li>
       <li>
-        <button on:click="{toggleTheme}" class="nav-button"
-          ><WiMoonAltFirstQuarter /></button>
+        <button
+          on:click="{toggleTheme}"
+          class="nav-button"
+          aria-label="dark theme toggler"><WiMoonAltFirstQuarter /></button>
       </li>
 
       <li class="mobile-menu">
-        <button on:click="{toggleMobileNav}" class="nav-button"
-          ><FaBars /></button>
+        <button
+          on:click="{toggleMobileNav}"
+          class="nav-button"
+          aria-label="mobile navigation"><FaBars /></button>
       </li>
     </ul>
   </div>
