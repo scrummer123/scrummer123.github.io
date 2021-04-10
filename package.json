@@ -19,10 +19,10 @@
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.9",
     "postcss-cli": "^8.3.1",
-    "snowpack": "^3.2.2",
-    "tailwindcss": "^2.1.1"
+    "snowpack": "^3.2.2"
   },
   "dependencies": {
+    "tailwindcss": "^2.1.1",
     "@snowpack/plugin-build-script": "^2.1.0",
     "@snowpack/plugin-svelte": "^3.6.1",
     "gh-pages": "^3.1.0",
