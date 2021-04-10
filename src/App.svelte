@@ -3,14 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import;
+
 @font-face {
   font-family: "Daddy Rewind";
-  src: url("./fonts/rewind.ttf") format("truetype");
+  src: url("./fonts/rewind.subset.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Nunito Bold";
-  src: url("./fonts/nunito.ttf") format("truetype");
+  src: url("./fonts/nunito.subset.ttf") format("truetype");
 }
 
 body.dark {
