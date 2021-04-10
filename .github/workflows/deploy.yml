@@ -12,12 +12,10 @@ jobs:
       env:
         LASTFM: ${{ secrets.LASTFM }}
         NODE_ENV: production
-
       - run: |
         git config --global user.email ${{ secrets.CONFIG_EMAIL }}
         git config --global user.name ${{ secrets.CONFIG_NAME }}
         git remote set-url origin https://${{ secrets.CONFIG_GHPAGES }}@github.com/${{ secrets.CONFIG_NAME }}/simon-instance.github.io.git
-
       - run: |
         npm i
         npm run build
