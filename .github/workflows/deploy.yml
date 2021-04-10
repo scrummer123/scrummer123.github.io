@@ -19,8 +19,8 @@ jobs:
           git config --global user.name ${{ secrets.CONFIG_NAME }}
           git fetch origin
           git checkout production
+      - run: npm i
       - run: |
-          npm i
           npm run build
           rm -f ./build/index.js.map
           npm run deploy
